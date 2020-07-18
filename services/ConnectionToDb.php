@@ -1,5 +1,9 @@
 <?php
 
+namespace Project\services;
+
+use mysqli;
+
 class Connection
 {
     public $servername = 'localhost';
@@ -10,7 +14,7 @@ class Connection
     /**
      * @return mysqli
      */
-    function connectionToDb()
+    function  connectionToDb()
     {
         return new mysqli($this->servername, $this->username, $this->password, $this->dbname);
     }
