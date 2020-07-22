@@ -1,9 +1,10 @@
 <?php
 
+namespace projectPhp\src\Controllers;
+use projectPhp\services\Connection;
 
 //require_once 'services\ConnectionToDb.php';
 
-use Project\services\Connection;
 
 class ControllerUsers
 {

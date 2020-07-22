@@ -1,6 +1,6 @@
 <?php
 
-namespace Project\services;
+namespace projectPhp\services;
 
 use mysqli;
 

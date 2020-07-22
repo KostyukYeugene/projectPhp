@@ -1,6 +1,9 @@
 <?php
 //require_once 'D:\Program Files\OSPanel\domains\Project\src\Controllers\UsersController.php';
-require_once __DIR__ . '/../Controllers/UsersController.php';
+//require_once __DIR__ . '/../Controllers/UsersController.php';
+namespace projectPhp\users;
+use projectPhp\src\Controllers\ControllerUsers;
+
 ?>
 <!DOCTYPE html>
 <html>

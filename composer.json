@@ -1,0 +1,9 @@
+{
+  "name": "test/test",
+  "description": "Test",
+  "autoload": {
+    "psr-4": {
+      "projectPhp\\": "projectPhp/"
+    }
+  }
+}
