@@ -1,6 +1,6 @@
 <?php
-namespace projectPhp\users;
-use projectPhp\users;
+namespace projectPhp\Models;
+use projectPhp\src\Views;
 
 class ModelUsers
 {
