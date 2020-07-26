@@ -1,9 +1,14 @@
 {
-  "name": "test/test",
-  "description": "Test",
+  "name": "KostyukYeugene/projectPhp",
+  "description": "project",
   "autoload": {
     "psr-4": {
-      "projectPhp\\": "projectPhp/"
+      "projectPhp\\": "src/",
+      "projectPhp\\services\\": "services/"
     }
+  },
+  "require" : {
+    "ext-mysqli": "*"
   }
 }
+.

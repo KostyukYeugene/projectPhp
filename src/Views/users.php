@@ -1,8 +1,10 @@
 <?php
+namespace projectPhp\src\Views;
+//require_once __DIR__ . '/vendor/autoload.php';
+
 //require_once 'D:\Program Files\OSPanel\domains\Project\src\Controllers\UsersController.php';
 //require_once __DIR__ . '/../Controllers/UsersController.php';
-namespace projectPhp\users;
-use projectPhp\src\Controllers\ControllerUsers;
+use projectPhp\src\Controllers\UsersController;
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +25,7 @@ use projectPhp\src\Controllers\ControllerUsers;
             <th>Action</th>
         </tr>
         <?php
-        $usersController = new ControllerUsers();
+        $usersController = new UsersController();
         $response = $usersController->indexAction();
         foreach ($response as $value) {
             ?>

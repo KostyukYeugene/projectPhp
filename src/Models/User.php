@@ -2,7 +2,7 @@
 namespace projectPhp\Models;
 use projectPhp\src\Views;
 
-class ModelUsers
+class User
 {
     private $first_name;
     private $last_name;

@@ -4,17 +4,17 @@ namespace projectPhp\services;
 
 use mysqli;
 
-class Connection
+class ConnectionToDb
 {
     public $servername = 'localhost';
-    public $username = "root";
-    public $password = "";
-    public $dbname = "basa";
+    public $username = "admin";
+    public $password = "0212";
+    public $dbname = "database";
 
     /**
      * @return mysqli
      */
-    function  connectionToDb()
+    function  connection()
     {
         return new mysqli($this->servername, $this->username, $this->password, $this->dbname);
     }
