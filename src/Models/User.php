@@ -1,5 +1,7 @@
 <?php
+
 namespace projectPhp\Models;
+
 use projectPhp\src\Views;
 
 class User

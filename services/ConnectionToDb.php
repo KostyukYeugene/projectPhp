@@ -1,6 +1,6 @@
 <?php
 
-namespace projectPhp\services;
+namespace projectPhp\Services;
 
 use mysqli;
 
@@ -14,7 +14,7 @@ class ConnectionToDb
     /**
      * @return mysqli
      */
-    function  connection()
+   public function  connection()
     {
         return new mysqli($this->servername, $this->username, $this->password, $this->dbname);
     }

@@ -1,9 +1,9 @@
 <?php
 
-namespace projectPhp\src\Controllers;
+namespace projectPhp\Controllers;
 
-use projectPhp\services\ConnectionToDb;
-//require_once __DIR__ . '\..\..\services\ConnectionToDb.php';
+use projectPhp\Services\ConnectionToDb;
+
 class UsersController
 {
     public function indexAction()
@@ -13,4 +13,4 @@ class UsersController
         return $response = $connection->query("SELECT * FROM `usersphp` limit 20 ")->fetch_all();
     }
 }
-
+var_dump(connection_status());

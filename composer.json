@@ -4,11 +4,10 @@
   "autoload": {
     "psr-4": {
       "projectPhp\\": "src/",
-      "projectPhp\\services\\": "services/"
+      "projectPhp\\Services\\": "services/"
     }
   },
   "require" : {
     "ext-mysqli": "*"
   }
 }
-.

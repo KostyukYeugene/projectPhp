@@ -1,10 +1,8 @@
 <?php
-namespace projectPhp\src\Views;
-//require_once __DIR__ . '/vendor/autoload.php';
 
-//require_once 'D:\Program Files\OSPanel\domains\Project\src\Controllers\UsersController.php';
-//require_once __DIR__ . '/../Controllers/UsersController.php';
-use projectPhp\src\Controllers\UsersController;
+namespace projectPhp\src\Views;
+
+use projectPhp\Controllers\UsersController;
 
 ?>
 <!DOCTYPE html>
