@@ -3,11 +3,12 @@
   "description": "project",
   "autoload": {
     "psr-4": {
-      "projectPhp\\": "src/",
-      "projectPhp\\Services\\": "services/"
+      "ProjectPhp\\": "src/"
     }
   },
   "require" : {
-    "ext-mysqli": "*"
+    "ext-mysqli": "*",
+    "symfony/dotenv": "^5.1",
+    "twbs/bootstrap": "^4.5"
   }
 }

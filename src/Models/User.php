@@ -1,67 +1,122 @@
 <?php
 
-namespace projectPhp\Models;
-
-use projectPhp\src\Views;
+namespace ProjectPhp\Models;
 
 class User
 {
-    private $first_name;
-    private $last_name;
+    /** @var string */
+    private $firstName;
+
+    /** @var string */
+    private $lastName;
+
+    /** @var string */
     private $email;
+
+    /** @var string */
     private $phone;
+
+    /** @var string */
     private $password;
 
-    public function getFirst_name()
+    /** @var int */
+    private $id;
+
+    /**
+     * @return string
+     */
+    public function getFirstName(): string
     {
-        return $this->first_name;
+        return $this->firstName;
     }
 
-    public function setFirst_name($first_name)
+    /**
+     * @param string $firstName
+     */
+    public function setFirstName(string $firstName): void
     {
-        $this->first_name = $first_name;
+        $this->firstName = $firstName;
     }
 
-    public function getLast_name()
+    /**
+     * @return string
+     */
+    public function getLastName(): string
     {
-        return $this->last_name;
+        return $this->lastName;
     }
 
-    public function setLast_name($last_name)
+    /**
+     * @param $lastName
+     */
+    public function setLastName(string $lastName): void
     {
-        $this->last_name = $last_name;
+        $this->lastName = $lastName;
     }
 
-    public function getEmail()
+    /**
+     * @return string
+     */
+    public function getEmail(): string
     {
         return $this->email;
     }
 
-    public function setEmail($email)
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
 
-    public function getPhone()
+    /**
+     * @return string
+     */
+    public function getPhone(): string
     {
         return $this->phone;
     }
 
-    public function setPhone($phone)
+    /**
+     * @param string $phone
+     */
+    public function setPhone(string $phone): void
     {
-        return $this->phone = $phone;
+        $this->phone = $phone;
     }
 
-    public function getPassword()
+    /**
+     * @return string
+     */
+    public function getPassword(): string
     {
         return $this->password;
 
     }
 
-    public function setPassword($password)
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password): void
     {
         $this->password = $password;
     }
-}
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+       return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+}
 

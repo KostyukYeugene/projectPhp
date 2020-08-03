@@ -1,42 +1,44 @@
 <?php
 
-namespace projectPhp\src\Views;
+namespace ProjectPhp\Views;
 
-use projectPhp\Controllers\UsersController;
+use ProjectPhp\Models\User;
+use ProjectPhp\Services\View;
+use ProjectPhp\Controllers\MainController;
+
+/** @var User[] $users */
+$users = View::getData()['users'];
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
-<div class="users">
-    <table border="1" align="center">
-        <caption>Таблица пользователей</caption>
-        <tr>
+<?php View::includePartialTemplate(View::HEADER_TEMPLATE_ALIAS); ?>
+<?php View::includePartialTemplate(View::MENU_TEMPLATE_ALIAS); ?>
+
+    <h3 align="center">Таблица пользователей</h3>
+        <table class="table bg-light" border="3" align="center" style = "height:80px">
+        <thead class="thead-dark">
+         <tr>
             <th>First name</th>
             <th>Last name</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Password</th>
             <th>Action</th>
-        </tr>
+         </tr>
+        </thead>
         <?php
-        $usersController = new UsersController();
-        $response = $usersController->indexAction();
-        foreach ($response as $value) {
+        foreach ($users as $user) {
             ?>
             <tr>
-                <td><?php echo $value[0] ?>
-                <td><?php echo $value[1] ?>
-                <td><?php echo $value[2] ?>
-                <td><?php echo $value[3] ?>
-                <td><?php echo $value[4] ?>
-                <td><input type="submit" value="View"/><input type="submit" value="Delete"/>
+                <td><?= $user->getFirstName() ?>
+                <td><?= $user->getLastName() ?>
+                <td><?= $user->getEmail() ?>
+                <td><?= $user->getPhone() ?>
+                <td><?= $user->getPassword() ?>
+                <td>
+                    <button type="button" class="btn btn-primary">View</button>
+                    <button type="button" class="btn btn-danger">Delete</button>
             </tr>
         <?php } ?>
     </table>
-</div>
-</body>
-</html>
+<?php View::includePartialTemplate(View::FOOTER_TEMPLATE_ALIAS);?>
+

@@ -1,8 +1,10 @@
 <?php
 
-namespace projectPhp\Controllers;
+namespace ProjectPhp\Controllers;
 
-use projectPhp\Services\ConnectionToDb;
+use ProjectPhp\Models\User;
+use ProjectPhp\Services\ConnectionToDb;
+use ProjectPhp\Services\View;
 
 class UsersController
 {
@@ -10,7 +12,22 @@ class UsersController
     {
         $connectionToDb = new ConnectionToDb();
         $connection = $connectionToDb->connection();
-        return $response = $connection->query("SELECT * FROM `usersphp` limit 20 ")->fetch_all();
+        $usersData = $connection->query("SELECT * FROM `usersphp` limit 10 ")->fetch_all(MYSQLI_ASSOC);
+        $users = [];
+
+        foreach ($usersData as $userItem) {
+            $user = new User();
+            $user->setFirstName((string)$userItem['firstname']);
+            $user->setLastName((string)$userItem['lastname']);
+            $user->setEmail((string)$userItem['email']);
+            $user->setPhone((string)$userItem['phone']);
+            $user->setPassword((string)$userItem['password']);
+            $user->setId((int)$userItem['id']);
+            $users[] = $user;
+        }
+        View::render('users.php', [
+            'users'=>$users
+        ]);
     }
 }
-var_dump(connection_status());
+
