@@ -4,7 +4,6 @@ namespace ProjectPhp\Views;
 
 use ProjectPhp\Models\User;
 use ProjectPhp\Services\View;
-use ProjectPhp\Controllers\MainController;
 
 /** @var User[] $users */
 $users = View::getData()['users'];

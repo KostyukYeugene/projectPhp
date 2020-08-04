@@ -13,7 +13,7 @@ use ProjectPhp\Services\View; ?>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-<h2>Главная страница</h2>
+                <h2>Главная страница</h2>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -42,12 +42,13 @@ use ProjectPhp\Services\View; ?>
     </div>
 </nav>
 <br>
-<div align="center" class="login" id="login" hidden>
+<div align="center" class="login" id="login">
     <form action="" method="post">
         <h2>Авторизация</h2>
         <input name="email" type="email" id="email" placeholder="Введите Email"><br>
         <input name="password" type="password" id="password" placeholder="Введите пароль"><br>
-        <button type="submit" class="btn btn-primary"> Войти</button><br>
+        <button type="submit" class="btn btn-primary"> Войти</button>
+        <br>
     </form>
 </div>
 <div class="register" id="register" hidden align="center">
@@ -60,7 +61,8 @@ use ProjectPhp\Services\View; ?>
         <input name="firstname" type="email" id="email" placeholder="Введите Email"><br>
         <input name="firstname" type="tel" id="phone" placeholder="Введите телефон"><br>
         <input name="firstname" type="password" id="password" placeholder="Введите пароль"><br>
-        <button type="submit" class="btn btn-primary">Отправить</button><br>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+        <br>
     </form>
 </div>
 <?php View::includePartialTemplate(View::FOOTER_TEMPLATE_ALIAS); ?>
