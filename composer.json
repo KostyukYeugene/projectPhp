@@ -9,6 +9,7 @@
   "require" : {
     "ext-mysqli": "*",
     "symfony/dotenv": "^5.1",
-    "twbs/bootstrap": "^4.5"
+    "twbs/bootstrap": "^4.5",
+    "ext-fileinfo": "*"
   }
 }
