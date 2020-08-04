@@ -8,11 +8,12 @@ class MainController
 {
     public function notFoundAction(): void
     {
-        View::render('notFound.php', []);
+        View::render('notFound.php');
     }
 
-    public function loginAction(): void
+    public function homeAction(): void
     {
-        View::render('login.php', []);
+        View::render('home.php');
     }
+
 }

@@ -24,7 +24,7 @@ class View
      * @param string $viewName
      * @param array $data
      */
-    public static function render(string $viewName, array $data): void
+    public static function render(string $viewName, array $data = []): void
     {
         self::$data = $data;
         require_once __DIR__ . '/../Views/' . $viewName;
