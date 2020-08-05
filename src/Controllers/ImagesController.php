@@ -3,11 +3,10 @@
 namespace ProjectPhp\Controllers;
 
 use ProjectPhp\Services\FileViewer;
-use ProjectPhp\Services\View;
 
 class ImagesController
 {
-    private const DEFAULT_IMAGE = __DIR__ . '/../Views/Resources/Images/404.jpg';
+    private const DEFAULT_IMAGE = __DIR__ . '/../Views/Resources/Images/notfound.jpg';
 
     public function showAction(): void
     {
