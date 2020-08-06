@@ -12,9 +12,8 @@ class UsersController
     {
         $connectionToDb = new ConnectionToDb();
         $connection = $connectionToDb->connection();
-        $usersData = $connection->query("SELECT * FROM `usersphp` limit 10 ")->fetch_all(MYSQLI_ASSOC);
+        $usersData = $connection->query("SELECT * FROM `usersphp` limit 10")->fetch_all(MYSQLI_ASSOC);
         $users = [];
-
         foreach ($usersData as $userItem) {
             $user = new User();
             $user->setFirstName((string)$userItem['firstname']);
@@ -29,5 +28,14 @@ class UsersController
             'users'=>$users
         ]);
     }
+    public function deleteAction()
+    {
+        $userId = (int)$_GET['userId'];
+        $connectionToDb = new ConnectionToDb();
+        $connect = $connectionToDb->connection();
+        $deleted = $connect->query("DELETE FROM usersphp WHERE id = $userId");
+        echo json_encode([
+            'success'=> (bool)$deleted
+        ]);
+    }
 }
-

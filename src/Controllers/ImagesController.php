@@ -27,3 +27,4 @@ class ImagesController
         FileViewer::viewContent(self::DEFAULT_IMAGE);
     }
 }
+
