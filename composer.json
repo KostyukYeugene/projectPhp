@@ -12,6 +12,7 @@
     "twbs/bootstrap": "^4.5",
     "ext-fileinfo": "*",
     "ext-http": "*",
-    "ext-json": "*"
+    "ext-json": "*",
+    "fzaninotto/faker": "^1.9"
   }
 }
