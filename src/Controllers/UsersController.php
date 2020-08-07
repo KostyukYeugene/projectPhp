@@ -39,4 +39,20 @@ class UsersController
             'success' => (bool)$deleted
         ]);
     }
+
+    public function storeAction()
+    {
+        $connectionToDB = new ConnectionToDb();
+        $connection = $connectionToDB->connection();
+        $firstname = $connectionToDB->escape((string)$_POST['firstname']);
+        $lastname = $connectionToDB->escape((string)$_POST['lastname']);
+        $email = $connectionToDB->escape((string)$_POST['email']);
+        $phone = $connectionToDB->escape((string)$_POST['phone']);
+        $password = $connectionToDB->escape((string)$_POST['password']);
+        $connection->query("
+            INSERT INTO `usersphp` (firstname, lastname, email, phone, password)
+            VALUES ('$firstname', '$lastname', '$email', '$phone', '$password') 
+        ");
+        $this->indexAction();
+    }
 }
