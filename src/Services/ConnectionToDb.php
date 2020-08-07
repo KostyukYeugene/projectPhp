@@ -27,6 +27,15 @@ class ConnectionToDb
         return $this->connection;
     }
 
+    /**
+     * @param $string
+     * @return string
+     */
+    public function escape($string): string
+    {
+        return mysqli_real_escape_string($this->connection, $string);
+    }
+
     public function __destruct()
     {
         mysqli_close($this->connection);

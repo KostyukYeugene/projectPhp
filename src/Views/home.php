@@ -52,15 +52,15 @@ use ProjectPhp\Services\View; ?>
     </form>
 </div>
 <div class="register" id="register" hidden align="center">
-    <form action="" method="post">
+    <form action="/users" method="post">
         <h4 class="modal-title" id="myModalLabel">Регистрация</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
         </button>
         <input name="firstname" type="text" id="firstname" placeholder="Введите имя"><br>
         <input name="lastname" type="text" id="lastname" placeholder="Введите Фамилию"><br>
-        <input name="firstname" type="email" id="email" placeholder="Введите Email"><br>
-        <input name="firstname" type="tel" id="phone" placeholder="Введите телефон"><br>
-        <input name="firstname" type="password" id="password" placeholder="Введите пароль"><br>
+        <input name="email" type="email" id="email" placeholder="Введите Email"><br>
+        <input name="phone" type="tel" id="phone" placeholder="Введите телефон"><br>
+        <input name="password" type="password" id="password" placeholder="Введите пароль"><br>
         <button type="submit" class="btn btn-primary">Отправить</button>
         <br>
     </form>
