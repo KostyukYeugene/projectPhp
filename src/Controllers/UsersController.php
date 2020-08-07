@@ -25,17 +25,18 @@ class UsersController
             $users[] = $user;
         }
         View::render('users.php', [
-            'users'=>$users
+            'users' => $users
         ]);
     }
+
     public function deleteAction()
     {
         $userId = (int)$_GET['userId'];
-        $connectionToDb = new ConnectionToDb();
-        $connect = $connectionToDb->connection();
+        $connection = new ConnectionToDb();
+        $connect = $connection->connection();
         $deleted = $connect->query("DELETE FROM usersphp WHERE id = $userId");
         echo json_encode([
-            'success'=> (bool)$deleted
+            'success' => (bool)$deleted
         ]);
     }
 }
