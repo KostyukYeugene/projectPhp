@@ -8,6 +8,7 @@ use ProjectPhp\Services\View;
 /** @var User[] $users */
 $users = View::getData()['users'];
 
+
 ?>
 <?php View::includePartialTemplate(View::HEADER_TEMPLATE_ALIAS); ?>
 <?php View::includePartialTemplate(View::MENU_TEMPLATE_ALIAS); ?>
@@ -39,6 +40,6 @@ $users = View::getData()['users'];
         </tr>
     <?php } ?>
 </table>
+<?php View::includePartialTemplate(View::PAGINATION_TEMPLATE_ALIAS); ?>
 <script src="/src/Views/Resources/JS/delete-user.js"></script>
 <?php View::includePartialTemplate(View::FOOTER_TEMPLATE_ALIAS); ?>
-

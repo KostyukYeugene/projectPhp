@@ -9,9 +9,11 @@ class View
 {
     public const MENU_TEMPLATE_ALIAS = 'menu';
     public const FOOTER_TEMPLATE_ALIAS = 'footer';
+    public const PAGINATION_TEMPLATE_ALIAS = 'pagination';
     public const HEADER_TEMPLATE_ALIAS = 'header';
     private const BASE_TEMPLATES_PATH = __DIR__ . '/../Views/Templates/';
     private const TEMPLATES = [
+        self::PAGINATION_TEMPLATE_ALIAS => self::BASE_TEMPLATES_PATH . 'pagination.php',
         self::HEADER_TEMPLATE_ALIAS => self::BASE_TEMPLATES_PATH . 'header.php',
         self::FOOTER_TEMPLATE_ALIAS => self::BASE_TEMPLATES_PATH . 'footer.php',
         self::MENU_TEMPLATE_ALIAS => self::BASE_TEMPLATES_PATH . 'menu.php'
