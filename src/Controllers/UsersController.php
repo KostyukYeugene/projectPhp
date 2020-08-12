@@ -2,18 +2,28 @@
 
 namespace ProjectPhp\Controllers;
 
+use ProjectPhp\Constants\PaginationConstants;
 use ProjectPhp\Models\User;
 use ProjectPhp\Services\ConnectionToDb;
+use ProjectPhp\Services\PageNumberRetriever;
+use ProjectPhp\Services\RequestParametersRetriever;
 use ProjectPhp\Services\View;
 
 class UsersController
 {
     public function indexAction()
     {
+        $recordsPerPage = PaginationConstants::RECORDS_PER_PAGE;
+        $currentPage = PageNumberRetriever::getPage();
+        $offset = $recordsPerPage * ($currentPage - 1);
         $connectionToDb = new ConnectionToDb();
         $connection = $connectionToDb->connection();
-        $usersData = $connection->query("SELECT * FROM `usersphp` limit 10")->fetch_all(MYSQLI_ASSOC);
+        $countUsers = (int)$connection->query("SELECT COUNT(1) FROM `usersphp`")->fetch_row()[0];
+        $usersData = $connection->query("SELECT * FROM `usersphp` limit $recordsPerPage OFFSET $offset")->fetch_all(MYSQLI_ASSOC);
+        $countPages = $countUsers / $recordsPerPage;
+        $lastPage = ceil($countPages);
         $users = [];
+
         foreach ($usersData as $userItem) {
             $user = new User();
             $user->setFirstName((string)$userItem['firstname']);
@@ -25,7 +35,9 @@ class UsersController
             $users[] = $user;
         }
         View::render('users.php', [
-            'users' => $users
+            'users' => $users,
+            'lastPage' => $lastPage,
+            'currentPage' => $currentPage
         ]);
     }
 
@@ -44,11 +56,22 @@ class UsersController
     {
         $connectionToDB = new ConnectionToDb();
         $connection = $connectionToDB->connection();
-        $firstname = $connectionToDB->escape((string)$_POST['firstname']);
-        $lastname = $connectionToDB->escape((string)$_POST['lastname']);
-        $email = $connectionToDB->escape((string)$_POST['email']);
-        $phone = $connectionToDB->escape((string)$_POST['phone']);
-        $password = $connectionToDB->escape((string)$_POST['password']);
+        $firstname = $connectionToDB->escape(
+            (string)RequestParametersRetriever::getPostParameter('firstname')
+        );
+        $lastname = $connectionToDB->escape(
+            (string)RequestParametersRetriever::getPostParameter('lastname')
+        );
+        $email = $connectionToDB->escape(
+            (string)RequestParametersRetriever::getPostParameter('email')
+        );
+        $phone = $connectionToDB->escape(
+            (string)RequestParametersRetriever::getPostParameter('phone')
+        );
+        $password = $connectionToDB->escape(
+            (string)RequestParametersRetriever::getPostParameter('password')
+        );
+        $password = hash('sha256', $password);
         $connection->query("
             INSERT INTO `usersphp` (firstname, lastname, email, phone, password)
             VALUES ('$firstname', '$lastname', '$email', '$phone', '$password') 

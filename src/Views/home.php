@@ -57,7 +57,7 @@ use ProjectPhp\Services\View; ?>
         <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
         </button>
         <input name="firstname" type="text" id="firstname" placeholder="Введите имя"><br>
-        <input name="lastname" type="text" id="lastname" placeholder="Введите Фамилию"><br>
+        <input name="lastname" type="text" id="lastname" placeholder="Введите фамилию"><br>
         <input name="email" type="email" id="email" placeholder="Введите Email"><br>
         <input name="phone" type="tel" id="phone" placeholder="Введите телефон"><br>
         <input name="password" type="password" id="password" placeholder="Введите пароль"><br>
