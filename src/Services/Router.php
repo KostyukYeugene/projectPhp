@@ -7,6 +7,7 @@ use ProjectPhp\Controllers\MainController;
 use ProjectPhp\Structures\Routes\AbstractRoute;
 use ProjectPhp\Structures\Routes\HomeRoute;
 use ProjectPhp\Structures\Routes\ImageRoute;
+use ProjectPhp\Structures\Routes\LoginRoute;
 use ProjectPhp\Structures\Routes\PostRoute;
 use ProjectPhp\Structures\Routes\UserDeleteRoute;
 use ProjectPhp\Structures\Routes\UsersRoute;
@@ -18,7 +19,8 @@ class Router
         UserDeleteRoute::class,
         UsersRoute::class,
         ImageRoute::class,
-        PostRoute::class
+        PostRoute::class,
+        LoginRoute::class
     ];
 
     public static function navigate(): void

@@ -2,6 +2,7 @@
 
 namespace ProjectPhp\Controllers;
 
+use ProjectPhp\Services\RequestParametersRetriever;
 use ProjectPhp\Services\View;
 
 class MainController
@@ -13,7 +14,10 @@ class MainController
 
     public function homeAction(): void
     {
-        View::render('home.php');
+        $errorMessage = (string)RequestParametersRetriever::getQueryParameter('errorMessage');
+        View::render('home.php', [
+            'errorMessage' => $errorMessage
+        ]);
     }
 
 }

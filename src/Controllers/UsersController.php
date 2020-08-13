@@ -34,6 +34,7 @@ class UsersController
             $user->setId((int)$userItem['id']);
             $users[] = $user;
         }
+
         View::render('users.php', [
             'users' => $users,
             'lastPage' => $lastPage,
@@ -72,10 +73,38 @@ class UsersController
             (string)RequestParametersRetriever::getPostParameter('password')
         );
         $password = hash('sha256', $password);
-        $connection->query("
+        $storeUser = $connection->query("
             INSERT INTO `usersphp` (firstname, lastname, email, phone, password)
             VALUES ('$firstname', '$lastname', '$email', '$phone', '$password') 
         ");
+        if (is_null($storeUser)) {
+            $storeUser = json_encode($storeUser);
+            $_SESSION['user'] = $storeUser;
+        }
+
         $this->indexAction();
+    }
+
+    public function loginAction()
+    {
+        $connectionToDb = new ConnectionToDb();
+        $connection = $connectionToDb->connection();
+        $email = RequestParametersRetriever::getPostParameter('email');
+        $password = RequestParametersRetriever::getPostParameter('password');
+        $password = hash('sha256', $password);
+        $userData = $connection->query("
+            SELECT * FROM `usersphp` WHERE email = '$email' AND password = '$password' limit 1
+        ")->fetch_assoc();
+
+        if (!is_null($userData)) {
+            $userData = json_encode($userData);
+            $_SESSION['user'] = $userData;
+            $this->indexAction();
+            return;
+        }
+
+        $queryData = http_build_query(['errorMessage' => 'Invalid credentials']);
+        header("Location: /?$queryData");
+
     }
 }

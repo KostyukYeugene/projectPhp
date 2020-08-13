@@ -9,5 +9,6 @@ interface RouteConstants
     public const METHOD_DELETE = 'DELETE';
     public const BASE_REQUEST_URI = '/';
     public const USERS_REQUEST_URI = '/users';
+    public const LOGIN_REQUEST_URI = '/login';
     public const IMAGES_REQUEST_URI = '/images';
 }

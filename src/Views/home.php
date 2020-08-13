@@ -2,8 +2,17 @@
 
 use ProjectPhp\Services\View; ?>
 
+<?php
+$errorMessage = View::getData()['errorMessage'];
+
+?>
 <?php View::includePartialTemplate(View::HEADER_TEMPLATE_ALIAS); ?>
 <br>
+<?php if ($errorMessage != '') { ?>
+    <div class="alert alert-danger" role="alert">
+        <?= $errorMessage; ?>
+    </div>
+<?php } ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +52,7 @@ use ProjectPhp\Services\View; ?>
 </nav>
 <br>
 <div align="center" class="login" id="login">
-    <form action="" method="post">
+    <form action="/login" method="post">
         <h2>Авторизация</h2>
         <input name="email" type="email" id="email" placeholder="Введите Email"><br>
         <input name="password" type="password" id="password" placeholder="Введите пароль"><br>
