@@ -40,6 +40,7 @@ class UsersController
             'lastPage' => $lastPage,
             'currentPage' => $currentPage
         ]);
+
     }
 
     public function deleteAction()
@@ -82,7 +83,8 @@ class UsersController
             $_SESSION['user'] = $storeUser;
         }
 
-        $this->indexAction();
+        header("Location: /users");
+        exit();
     }
 
     public function loginAction()
@@ -99,12 +101,21 @@ class UsersController
         if (!is_null($userData)) {
             $userData = json_encode($userData);
             $_SESSION['user'] = $userData;
-            $this->indexAction();
-            return;
+            header("Location: /users");
+            exit();
         }
 
         $queryData = http_build_query(['errorMessage' => 'Invalid credentials']);
         header("Location: /?$queryData");
+        exit();
 
+    }
+
+    public function logoutAction()
+    {
+        unset($_SESSION['user']);
+        session_destroy();
+        header("Location: /");
+        exit();
     }
 }

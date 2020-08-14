@@ -10,5 +10,6 @@ interface RouteConstants
     public const BASE_REQUEST_URI = '/';
     public const USERS_REQUEST_URI = '/users';
     public const LOGIN_REQUEST_URI = '/login';
+    public const LOGOUT_REQUEST_URI = '/logout';
     public const IMAGES_REQUEST_URI = '/images';
 }

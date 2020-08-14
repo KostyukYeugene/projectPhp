@@ -4,29 +4,25 @@ namespace ProjectPhp\Structures\Routes;
 
 use ProjectPhp\Constants\RouteConstants;
 use ProjectPhp\Controllers\UsersController;
+use ProjectPhp\Services\Router;
 
-class UsersRoute extends AbstractRoute
+class LogoutRoute extends AbstractRoute
 {
-    /**
-     * @return string
-     */
+
     public static function getRequestUri(): string
     {
-        return RouteConstants::USERS_REQUEST_URI;
+        return RouteConstants::LOGOUT_REQUEST_URI;
     }
 
-    /**
-     * @return string
-     */
     public static function getRequestMethod(): string
     {
-        return RouteConstants::METHOD_GET;
+        return RouteConstants::METHOD_POST;
     }
 
     public static function fireAction(): void
     {
-        $controller = new UsersController();
-        $controller->indexAction();
+        $usersController = new UsersController();
+        $usersController->logoutAction();
     }
 
     /**

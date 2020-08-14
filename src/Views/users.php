@@ -12,7 +12,6 @@ $users = View::getData()['users'];
 ?>
 <?php View::includePartialTemplate(View::HEADER_TEMPLATE_ALIAS); ?>
 <?php View::includePartialTemplate(View::MENU_TEMPLATE_ALIAS); ?>
-
 <h3 align="center">Таблица пользователей</h3>
 <table class="table bg-light" border="3" align="center" style="height:80px">
     <thead class="thead-dark">

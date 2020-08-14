@@ -15,4 +15,9 @@ abstract class AbstractRoute
     abstract public static function getRequestMethod(): string;
 
     abstract public static function fireAction(): void;
+
+    /**
+     * @return bool
+     */
+    abstract public static function isForLoggedInUser(): bool;
 }

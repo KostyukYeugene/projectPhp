@@ -28,4 +28,12 @@ class UserDeleteRoute extends AbstractRoute
         $usersController = new UsersController();
         $usersController->deleteAction();
     }
+
+    /**
+     * @return bool
+     */
+    public static function isForLoggedInUser(): bool
+    {
+        return true;
+    }
 }

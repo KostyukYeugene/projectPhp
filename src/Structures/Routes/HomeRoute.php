@@ -28,4 +28,12 @@ class HomeRoute extends AbstractRoute
         $mainController = new MainController();
         $mainController->homeAction();
     }
+
+    /**
+     * @return bool
+     */
+    public static function isForLoggedInUser(): bool
+    {
+        return false;
+    }
 }

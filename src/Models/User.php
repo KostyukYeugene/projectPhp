@@ -114,9 +114,21 @@ class User
     /**
      * @param int $id
      */
-    public function setId(int $id)
+    public function setId(int $id): void
     {
         $this->id = $id;
     }
+
+    /**
+     * @return bool
+     */
+    public static function isLoggedIn(): bool
+    {
+        return array_key_exists('user', $_SESSION)
+            && !is_null($_SESSION['user'])
+            && strlen($_SESSION['user']) > 0
+        ;
+    }
+
 }
 

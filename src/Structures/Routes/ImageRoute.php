@@ -28,4 +28,12 @@ class ImageRoute extends AbstractRoute
         $imagesController = new ImagesController();
         $imagesController->showAction();
     }
+
+    /**
+     * @return bool
+     */
+    public static function isForLoggedInUser(): bool
+    {
+        return true;
+    }
 }

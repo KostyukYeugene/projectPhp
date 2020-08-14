@@ -1,4 +1,6 @@
-<?php namespace ProjectPhp\Services\View;
+<?php
+
+namespace ProjectPhp\Services\View;
 
 use ProjectPhp\Services\View; ?>
 

@@ -11,4 +11,5 @@ error_reporting(E_ALL);
 
 $dotenv = new Dotenv();
 $dotenv->usePutenv()->load(__DIR__ . '/.env');
+session_start();
 Router::navigate();

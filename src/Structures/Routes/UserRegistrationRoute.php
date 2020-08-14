@@ -5,7 +5,7 @@ namespace ProjectPhp\Structures\Routes;
 use ProjectPhp\Constants\RouteConstants;
 use ProjectPhp\Controllers\UsersController;
 
-class PostRoute extends AbstractRoute
+class UserRegistrationRoute extends AbstractRoute
 {
 
     public static function getRequestUri(): string
@@ -22,5 +22,13 @@ class PostRoute extends AbstractRoute
     {
         $postRoute = new UsersController();
         $postRoute->storeAction();
+    }
+
+    /**
+     * @return bool
+     */
+    public static function isForLoggedInUser(): bool
+    {
+        return false;
     }
 }

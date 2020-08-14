@@ -22,4 +22,12 @@ class LoginRoute extends AbstractRoute
         $usersController = new UsersController();
         $usersController->loginAction();
     }
+
+    /**
+     * @return bool
+     */
+    public static function isForLoggedInUser(): bool
+    {
+        return false;
+    }
 }
